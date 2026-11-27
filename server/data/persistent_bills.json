@@ -1,0 +1,62 @@
+[
+  {
+    "billId": "BSPHCL/ABM/2026/0001",
+    "advocateEnrollment": "BR/128/2026",
+    "advocateName": "Ms. Saumya Poddar",
+    "originalBillNumber": "INV/2026/001",
+    "billDate": "2026-11-20",
+    "submissionDate": "2026-11-21",
+    "claimedAmount": 60000,
+    "courtCaseNumber": "CWJC 1234/2026",
+    "courtName": "Patna High Court",
+    "caseDescription": "Arbitration and commercial contract dispute",
+    "department": "BSPHCL Legal Department",
+    "remarks": "Intake fee bill",
+    "status": "APPROVED",
+    "currentStage": "ACCOUNTS",
+    "approvedAmount": 55000,
+    "sanctionLetterNumber": "SANCTION/2026/101",
+    "sanctionLetterDate": "2026-11-25",
+    "totalPaid": 20000,
+    "payments": [
+      {
+        "amount": 20000,
+        "paymentDate": "2026-11-26",
+        "paymentMode": "NEFT",
+        "referenceNumber": "UTR-987654321",
+        "voucherNumber": "V-001",
+        "remarks": "Part payment"
+      }
+    ],
+    "history": [
+      {
+        "action": "Submitted to Legal",
+        "previousStatus": "DRAFT",
+        "newStatus": "HR_SUBMITTED",
+        "remarks": "Forwarded to Legal",
+        "performedByRole": "HR"
+      },
+      {
+        "action": "Legal Verified",
+        "previousStatus": "HR_SUBMITTED",
+        "newStatus": "LEGAL_VERIFIED",
+        "remarks": "Verified hearing order",
+        "performedByRole": "LEGAL"
+      },
+      {
+        "action": "Sanction Approved",
+        "previousStatus": "LEGAL_VERIFIED",
+        "newStatus": "APPROVED",
+        "remarks": "Sanctioned Rs.55,000",
+        "performedByRole": "GM"
+      },
+      {
+        "action": "Payment Recorded",
+        "previousStatus": "APPROVED",
+        "newStatus": "PARTIALLY_PAID",
+        "remarks": "Rs.20,000 paid via NEFT",
+        "performedByRole": "ACCOUNTS"
+      }
+    ]
+  }
+]

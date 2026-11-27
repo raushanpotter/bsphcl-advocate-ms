@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Ms. Saumya Poddar",
+    "enrollmentNumber": "BR/128/2026",
+    "mobile": "",
+    "email": "",
+    "address": "",
+    "specialization": "High Court & Commercial Law",
+    "isActive": true
+  },
+  {
+    "name": "Mr. Vishal Saurabh",
+    "enrollmentNumber": "30/2006",
+    "mobile": "9709379933",
+    "email": "saurabhv31@gmail.com",
+    "address": "Bahadurpur Housing Colony, Near T.V Tower, Patna-800026",
+    "specialization": "Civil & Electricity Matters",
+    "isActive": true
+  },
+  {
+    "name": "Shreyashi Raj",
+    "enrollmentNumber": "BR/1912/2023",
+    "mobile": "7058147964",
+    "email": "shreyashi.raj485@gmail.com",
+    "address": "Harding Road, Kranti Marg, Patna-800001",
+    "specialization": "Legal Advisory & Corporate Litigations",
+    "isActive": true
+  },
+  {
+    "name": "Miss. Aishwarya Shankar",
+    "enrollmentNumber": "BR 1723/2023",
+    "mobile": "7667544674",
+    "email": "aishwarya1409@gmail.com",
+    "address": "Shankar Bhawan, Dwarka Nath Lane, Salimpur Ahra, Kadamkuan Patna-800003",
+    "specialization": "Constitutional & Regulatory Law",
+    "isActive": true
+  },
+  {
+    "name": "Mr. Arijeet Shukla",
+    "enrollmentNumber": "D/26/2020",
+    "mobile": "9886789419",
+    "email": "arijeet.shukla@gmail.com",
+    "address": "",
+    "specialization": "Arbitration & Contract Dispute",
+    "isActive": true
+  },
+  {
+    "name": "Mr. Kumar Saurav",
+    "enrollmentNumber": "D/2902/2019",
+    "mobile": "9572362255",
+    "email": "saurav.15@hotmail.com",
+    "address": "Manu Apartments, Mayur Vihar Phase I, New Delhi-110091",
+    "specialization": "Appellate & Tribunal Representation",
+    "isActive": true
+  }
+]
