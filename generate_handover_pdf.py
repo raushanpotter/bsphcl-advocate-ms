@@ -45,7 +45,7 @@ class NumberedCanvas(canvas.Canvas):
         # Running Footer
         page_text = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(559, 28, page_text)
-        self.drawString(36, 28, "BSPHCL IT & Legal Cell — Confidential Internship Handover Documentation")
+        self.drawString(36, 28, "BSPHCL IT & HR Administration — GEC Munger CSE (AI) Internship Handover")
         self.line(36, 38, 559, 38)
         self.restoreState()
 
@@ -72,27 +72,26 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     c_header_bg = colors.HexColor("#1e293b")    # Slate 800
     c_gold = colors.HexColor("#b45309")         # Amber/Gold
 
-    # Custom Paragraph Styles
     cover_company = ParagraphStyle(
         'CoverCompany',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
         fontSize=20,
-        leading=26,
+        leading=25,
         textColor=c_red,
         alignment=1, # Center
-        spaceAfter=6
+        spaceAfter=4
     )
 
     cover_dept = ParagraphStyle(
         'CoverDept',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=15,
-        leading=20,
+        fontSize=14,
+        leading=18,
         textColor=c_gold,
         alignment=1,
-        spaceAfter=4
+        spaceAfter=3
     )
 
     cover_title = ParagraphStyle(
@@ -100,32 +99,32 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
         fontSize=18,
-        leading=24,
+        leading=23,
         textColor=c_primary,
         alignment=1,
-        spaceAfter=4
+        spaceAfter=3
     )
 
     cover_subtitle = ParagraphStyle(
         'CoverSubtitle',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=11,
-        leading=15,
+        fontSize=10,
+        leading=14,
         textColor=c_muted,
         alignment=1,
-        spaceAfter=14
+        spaceAfter=10
     )
 
     h1_style = ParagraphStyle(
         'H1',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=14,
-        leading=18,
+        fontSize=13.5,
+        leading=17,
         textColor=c_primary,
-        spaceBefore=12,
-        spaceAfter=6,
+        spaceBefore=10,
+        spaceAfter=5,
         keepWithNext=True
     )
 
@@ -133,11 +132,11 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         'H2',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=11,
-        leading=15,
+        fontSize=10.5,
+        leading=14,
         textColor=c_dark,
-        spaceBefore=8,
-        spaceAfter=4,
+        spaceBefore=7,
+        spaceAfter=3,
         keepWithNext=True
     )
 
@@ -145,24 +144,18 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         'Body',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.5,
-        leading=12.5,
+        fontSize=8.2,
+        leading=12,
         textColor=colors.HexColor("#1e293b"),
-        spaceAfter=6
-    )
-
-    body_bold = ParagraphStyle(
-        'BodyBold',
-        parent=body_style,
-        fontName='Helvetica-Bold'
+        spaceAfter=5
     )
 
     callout_style = ParagraphStyle(
         'Callout',
         parent=styles['Normal'],
         fontName='Helvetica-Oblique',
-        fontSize=8.5,
-        leading=12.5,
+        fontSize=8,
+        leading=11.5,
         textColor=colors.HexColor("#0f172a")
     )
 
@@ -170,8 +163,8 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         'TableCell',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=7.5,
-        leading=10.5,
+        fontSize=7.2,
+        leading=10,
         textColor=colors.HexColor("#1e293b")
     )
 
@@ -185,8 +178,8 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         'TableCellHeader',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=7.8,
-        leading=10.5,
+        fontSize=7.6,
+        leading=10,
         textColor=colors.white
     )
 
@@ -194,8 +187,8 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         'CodeStyle',
         parent=styles['Normal'],
         fontName='Courier',
-        fontSize=7.5,
-        leading=10.5,
+        fontSize=7.2,
+        leading=10,
         textColor=colors.HexColor("#0f172a")
     )
 
@@ -204,55 +197,62 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     # =========================================================================
     # PAGE 1: COVER PAGE
     # =========================================================================
-    # Top Company Header
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 5))
     story.append(Paragraph("Bihar State Power Holding Company Ltd.", cover_company))
-    story.append(HRFlowable(width="90%", thickness=1.5, color=c_red, spaceBefore=4, spaceAfter=8))
+    story.append(HRFlowable(width="92%", thickness=1.5, color=c_red, spaceBefore=2, spaceAfter=6))
 
     # Center Logo
     logo_path = os.path.join('pdf_assets', 'logo.jpg')
     if os.path.exists(logo_path):
-        story.append(Table([[RLImage(logo_path, width=54, height=48)]], colWidths=[523], style=[
+        story.append(Table([[RLImage(logo_path, width=52, height=46)]], colWidths=[523], style=[
             ('ALIGN', (0,0), (-1,-1), 'CENTER'),
             ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-            ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+            ('BOTTOMPADDING', (0,0), (-1,-1), 4),
             ('TOPPADDING', (0,0), (-1,-1), 0),
         ]))
 
     # Plant Banner Image
     plant_path = os.path.join('pdf_assets', 'plant_banner.jpg')
     if os.path.exists(plant_path):
-        story.append(Table([[RLImage(plant_path, width=440, height=170)]], colWidths=[523], style=[
+        story.append(Table([[RLImage(plant_path, width=450, height=160)]], colWidths=[523], style=[
             ('ALIGN', (0,0), (-1,-1), 'CENTER'),
             ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
             ('BOX', (0,0), (-1,-1), 1, c_border),
-            ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-            ('TOPPADDING', (0,0), (-1,-1), 4),
+            ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+            ('TOPPADDING', (0,0), (-1,-1), 3),
         ]))
 
-    story.append(Spacer(1, 8))
+    story.append(Spacer(1, 6))
     story.append(Paragraph("DEPARTMENT OF HR & ADMINISTRATION", cover_dept))
     story.append(Paragraph("Advocate Bill Management System (ABMS)", cover_title))
     story.append(Paragraph("Full-Stack Internship Project Report & Comprehensive Handover Documentation", cover_subtitle))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=c_border, spaceBefore=2, spaceAfter=10))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=c_border, spaceBefore=2, spaceAfter=8))
 
     # Two Column Layout: Student Details & Guidance / Company Details
     students_text = (
         "<b>SUBMITTED BY (STUDENTS):</b><br/>"
-        "1. <b>Raushan Kumar</b> — Project Lead & Full-Stack Developer<br/>"
-        "2. <b>Anubhav Kumar</b> — Backend & Database Architecture<br/>"
-        "3. <b>Dipanshu Kumar</b> — Frontend UI/UX & Testing<br/><br/>"
-        "<b>ACADEMIC / COLLEGE DETAILS:</b><br/>"
-        "Department of Computer Science & Engineering<br/>"
-        "Major Internship Project — Academic Session 2024–2026"
+        "1. <b>Raushan Kumar</b> (Reg. No: <b>23151144003</b>)<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;Role: <i>Project Lead & Full-Stack Developer</i><br/>"
+        "2. <b>Anubhav Asthana</b> (Reg. No: <b>23151144004</b>)<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;Role: <i>Frontend UI/UX & Testing</i><br/>"
+        "3. <b>Dipanshu Raj</b> (Reg. No: <b>23151144001</b>)<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;Role: <i>Database Architecture & Testing</i><br/><br/>"
+        "<b>COLLEGE / ACADEMIC DETAILS:</b><br/>"
+        "<b>Government Engineering College, Munger</b> (GEC Munger)<br/>"
+        "Branch: <b>Computer Science & Engineering (Artificial Intelligence) — CSE (AI)</b><br/>"
+        "Semester: <b>7th Semester</b>&nbsp;&nbsp;|&nbsp;&nbsp;Session: <b>2023–2027</b><br/>"
+        "Internship Period: <b>30/10/2026 to 27/11/2026</b> (1 Month)"
     )
 
     guidance_text = (
-        "<b>UNDER THE GUIDANCE OF:</b><br/>"
-        "<b>Mr. AJAY KUMAR (DBA)</b><br/>"
-        "Database Administrator & IT In-Charge<br/>"
-        "Bihar State Power Holding Company Limited<br/><br/>"
-        "<b>ORGANIZATION / COMPANY DETAILS:</b><br/>"
+        "<b>SUPERVISION & GUIDANCE:</b><br/>"
+        "• <b>Mr. Sandeep Kumar</b><br/>"
+        "&nbsp;&nbsp;&nbsp;<i>Under Secretary</i>, Dept. of HR & Administration, BSPHCL<br/>"
+        "• <b>Alok Sir</b><br/>"
+        "&nbsp;&nbsp;&nbsp;<i>IT Department In-Charge</i>, BSPHCL<br/>"
+        "• <b>Mr. Ajay Kumar (DBA)</b><br/>"
+        "&nbsp;&nbsp;&nbsp;<i>Database Administrator</i>, IT Cell, BSPHCL<br/><br/>"
+        "<b>COMPANY / ORGANIZATION DETAILS:</b><br/>"
         "<b>Bihar State Power Holding Company Ltd. (BSPHCL)</b><br/>"
         "Vidyut Bhawan, Bailey Road, Patna, Bihar – 800001<br/>"
         "Holding Entities: BSPHCL, SBPDCL, NBPDCL, BSPTCL, BSPGCL"
@@ -265,20 +265,20 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,-1), c_light_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 10),
+        ('PADDING', (0,0), (-1,-1), 8),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
     ]))
     story.append(cover_meta_table)
 
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
     cert_note = (
-        "<b>Certificate / Verification Reference:</b> Certified Internship Project Handover at BSPHCL Head Office, Patna. "
-        "Strictly for official academic evaluation and internal corporate archival."
+        "<b>Internship Handover Verification:</b> Completed successfully at BSPHCL Head Office, Vidyut Bhawan, Patna "
+        "for the period <b>30-Oct-2026 to 27-Nov-2026</b>. For official academic evaluation at GEC Munger and corporate archival at BSPHCL."
     )
     story.append(Table([[Paragraph(cert_note, table_cell)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), colors.HexColor("#fef3c7")),
         ('BOX', (0,0), (0,0), 0.8, colors.HexColor("#f59e0b")),
-        ('PADDING', (0,0), (0,0), 6),
+        ('PADDING', (0,0), (0,0), 5),
     ]))
 
     story.append(PageBreak())
@@ -291,7 +291,7 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
 
     index_data = [
         [Paragraph("<b>Chapter / Section</b>", table_cell_header), Paragraph("<b>Description & Key Topics</b>", table_cell_header), Paragraph("<b>Page</b>", table_cell_header)],
-        [Paragraph("<b>1. Project Deliverables & Online Links</b>", table_cell_bold), Paragraph("Live Vercel frontend, Render REST API, GitHub repo, Video demo", table_cell), Paragraph("Page 3", table_cell)],
+        [Paragraph("<b>1. Project Deliverables & Online Links</b>", table_cell_bold), Paragraph("Live Vercel frontend, Render REST API, GitHub repo, Live demo portal", table_cell), Paragraph("Page 3", table_cell)],
         [Paragraph("<b>2. Executive Summary & Problem Statement</b>", table_cell_bold), Paragraph("BSPHCL legal docketing challenges, paper bottlenecks, objectives", table_cell), Paragraph("Page 4", table_cell)],
         [Paragraph("<b>3. System Architecture & Workflow Pipeline</b>", table_cell_bold), Paragraph("Sequential 4-stage State Machine: HR -> Legal -> GM -> Accounts", table_cell), Paragraph("Page 5", table_cell)],
         [Paragraph("<b>4. Features & Role-Based Access Control</b>", table_cell_bold), Paragraph("5 departmental roles, permission matrix, exclusive removal & refill", table_cell), Paragraph("Page 6", table_cell)],
@@ -300,8 +300,8 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         [Paragraph("<b>7. Official Advocate Roster & Persistence</b>", table_cell_bold), Paragraph("Official empanelled roster, dual-layer cloud disk mirror seeder", table_cell), Paragraph("Page 9", table_cell)],
         [Paragraph("<b>8. Financial Auditing & CSV Export Engine</b>", table_cell_bold), Paragraph("Axios blob streaming, Excel UTF-8 BOM, end-of-day boundary logic", table_cell), Paragraph("Page 10", table_cell)],
         [Paragraph("<b>9. Installation, Testing & Deployment Guide</b>", table_cell_bold), Paragraph("Local setup, 14-point test suite execution, cloud deployment steps", table_cell), Paragraph("Page 11", table_cell)],
-        [Paragraph("<b>10. Live Application Screenshots & Proofs</b>", table_cell_bold), Paragraph("Visual gallery of Admin, Workflow, Advocate Directory, and Reports", table_cell), Paragraph("Page 12", table_cell)],
-        [Paragraph("<b>11. Project Handover Checklist & Formal Sign-Off</b>", table_cell_bold), Paragraph("Verification checklist, student declarations, mentor sign-off signature box", table_cell), Paragraph("Page 13", table_cell)],
+        [Paragraph("<b>10. Visual Architecture & Project Screenshots</b>", table_cell_bold), Paragraph("Codebase folder structure, Admin User Management, Bill Refill, Reports", table_cell), Paragraph("Page 12", table_cell)],
+        [Paragraph("<b>11. Handover Checklist & Formal Sign-Off</b>", table_cell_bold), Paragraph("Verification checklist, student declarations, mentor sign-off signatures", table_cell), Paragraph("Page 13", table_cell)],
     ]
 
     index_table = Table(index_data, colWidths=[160, 303, 60])
@@ -309,46 +309,49 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 5),
+        ('PADDING', (0,0), (-1,-1), 4.5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('ALIGN', (2,0), (2,-1), 'CENTER'),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(index_table)
-    story.append(Spacer(1, 14))
+    story.append(Spacer(1, 10))
 
     # Formal Declaration & Certificate of Handover Box
     story.append(Paragraph("Certificate & Formal Project Handover Declaration", h2_style))
     declaration_text = (
-        "This is to formally certify that the project entitled <b>'BSPHCL Advocate Bill Management System (ABMS)'</b> "
-        "has been successfully designed, engineered, tested, and deployed by the student development team comprising "
-        "<b>Raushan Kumar</b>, <b>Anubhav Kumar</b>, and <b>Dipanshu Kumar</b> under the esteemed guidance and supervision of "
-        "<b>Mr. Ajay Kumar (DBA)</b>, Bihar State Power Holding Company Limited (BSPHCL), Patna.<br/><br/>"
-        "The project fulfills all organizational requirements for digital bill intake, multi-tier legal scrutiny, GM financial sanction, "
-        "offline disbursement tracking, role-based security, automated test coverage, and cloud deployment. All source code, database seeds, "
-        "build artifacts, and administrative credentials are fully transferred for corporate handover."
+        "This is to formally certify that the major internship project entitled <b>'BSPHCL Advocate Bill Management System (ABMS)'</b> "
+        "has been successfully designed, engineered, tested, and handed over by the student development team from "
+        "<b>Government Engineering College, Munger (CSE-AI, 7th Semester, Session 2023–2027)</b> comprising:<br/>"
+        "• <b>Raushan Kumar</b> (Reg. No. <b>23151144003</b>) — <i>Project Lead & Full-Stack Developer</i><br/>"
+        "• <b>Anubhav Asthana</b> (Reg. No. <b>23151144004</b>) — <i>Frontend UI/UX & Testing</i><br/>"
+        "• <b>Dipanshu Raj</b> (Reg. No. <b>23151144001</b>) — <i>Database Architecture & Testing</i><br/><br/>"
+        "The project was executed at <b>Bihar State Power Holding Company Limited (BSPHCL), Patna</b> from <b>30-Oct-2026 to 27-Nov-2026</b> "
+        "under the guidance of <b>Mr. Sandeep Kumar</b> (Under Secretary, HR & Administration), <b>Alok Sir</b> (IT Department), "
+        "and <b>Mr. Ajay Kumar (DBA)</b> (Database Administrator). All deliverables, database seeds, cloud deployments, and credentials "
+        "are fully transferred for institutional evaluation and company handover."
     )
     story.append(Table([[Paragraph(declaration_text, body_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), colors.HexColor("#f0fdf4")),
         ('BOX', (0,0), (0,0), 1, colors.HexColor("#86efac")),
-        ('PADDING', (0,0), (0,0), 10),
+        ('PADDING', (0,0), (0,0), 8),
     ]))
 
-    story.append(Spacer(1, 14))
-    # Signature Placeholders
+    story.append(Spacer(1, 10))
+    # Signatures Table
     sig_data = [
         [
-            Paragraph("<b>Raushan Kumar</b><br/>Lead Developer<br/>Date: 27-Nov-2026", table_cell),
-            Paragraph("<b>Anubhav Kumar</b><br/>Backend Engineer<br/>Date: 27-Nov-2026", table_cell),
-            Paragraph("<b>Dipanshu Kumar</b><br/>Frontend Engineer<br/>Date: 27-Nov-2026", table_cell),
-            Paragraph("<b>Mr. Ajay Kumar (DBA)</b><br/>Project Guide & DBA, BSPHCL<br/>Sign & Seal: ____________", table_cell)
+            Paragraph("<b>Raushan Kumar</b><br/>Reg: 23151144003<br/>Lead Developer<br/>Date: 27-Nov-2026", table_cell),
+            Paragraph("<b>Anubhav Asthana</b><br/>Reg: 23151144004<br/>Frontend & Testing<br/>Date: 27-Nov-2026", table_cell),
+            Paragraph("<b>Dipanshu Raj</b><br/>Reg: 23151144001<br/>Database Architect<br/>Date: 27-Nov-2026", table_cell),
+            Paragraph("<b>Mr. Ajay Kumar (DBA)</b><br/>IT / DBA, BSPHCL<br/>Sign & Seal:<br/>___________________", table_cell)
         ]
     ]
     sig_table = Table(sig_data, colWidths=[130, 130, 130, 133])
     sig_table.setStyle(TableStyle([
         ('BOX', (0,0), (-1,-1), 0.8, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 6),
+        ('PADDING', (0,0), (-1,-1), 5),
         ('BACKGROUND', (0,0), (-1,-1), c_light_bg),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
     ]))
@@ -387,13 +390,13 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ],
         [
             Paragraph("<b>Full Handover Report PDF</b>", table_cell_bold),
-            Paragraph("BSPHCL_Advocate_Management_System_Handover_Report.pdf (Included)", table_cell),
+            Paragraph("BSPHCL_Advocate_Management_System_Handover_Report.pdf", table_cell),
             Paragraph("Project Root & Handover ZIP", table_cell)
         ],
         [
-            Paragraph("<b>Demonstration Video</b>", table_cell_bold),
-            Paragraph("<font color='#0284c7'><u>https://drive.google.com/file/d/bsphcl-abms-demo-video</u></font>", table_cell),
-            Paragraph("Google Drive Cloud Video", table_cell)
+            Paragraph("<b>Live Demonstration Portal</b>", table_cell_bold),
+            Paragraph("<font color='#0284c7'><u>https://bsphcl-advocate-ms.vercel.app</u></font> (24/7 Live Interactive Demo)", table_cell),
+            Paragraph("Interactive Cloud Evaluation", table_cell)
         ],
     ]
     deliv_table = Table(deliv_data, colWidths=[140, 273, 110])
@@ -401,12 +404,12 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 6),
+        ('PADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(deliv_table)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("Default Departmental User Credentials for System Testing", h2_style))
     story.append(Paragraph(
@@ -429,21 +432,21 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4.5),
+        ('PADDING', (0,0), (-1,-1), 4),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(cred_table)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     callout_box = (
-        "<b>Security Notice:</b> The administrative password uses one-way bcryptjs salt hashing (10 rounds). "
-        "In production, administrators can change their passwords anytime via the top-right profile dropdown menu."
+        "<b>Security Notice:</b> Passwords use one-way bcryptjs salt hashing (10 rounds). "
+        "In production, administrators can change passwords or activate/deactivate department logins via the User Management portal."
     )
     story.append(Table([[Paragraph(callout_box, callout_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), colors.HexColor("#eff6ff")),
         ('BOX', (0,0), (0,0), 0.8, c_accent),
-        ('PADDING', (0,0), (0,0), 6),
+        ('PADDING', (0,0), (0,0), 5),
     ]))
 
     story.append(PageBreak())
@@ -537,9 +540,9 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     story.append(Table([[Paragraph(wf_box, code_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), c_light_bg),
         ('BOX', (0,0), (0,0), 1, c_border),
-        ('PADDING', (0,0), (0,0), 8),
+        ('PADDING', (0,0), (0,0), 6),
     ]))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("3.2 State Transition Matrix", h2_style))
     state_data = [
@@ -558,7 +561,7 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4.5),
+        ('PADDING', (0,0), (-1,-1), 4),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
@@ -598,13 +601,13 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4),
+        ('PADDING', (0,0), (-1,-1), 3.8),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('ALIGN', (1,0), (-1,-1), 'CENTER'),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(rbac_table)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("4.2 Specialized Architectural Enhancements", h2_style))
     story.append(Paragraph(
@@ -651,12 +654,12 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4),
+        ('PADDING', (0,0), (-1,-1), 3.8),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(tech_table)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("Security Architecture Highlights", h2_style))
     story.append(Paragraph(
@@ -773,7 +776,7 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4.5),
+        ('PADDING', (0,0), (-1,-1), 4),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
     ]))
@@ -807,12 +810,12 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         ('BACKGROUND', (0,0), (-1,0), c_header_bg),
         ('BOX', (0,0), (-1,-1), 1, c_border),
         ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4),
+        ('PADDING', (0,0), (-1,-1), 3.8),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
     ]))
     story.append(adv_table)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("Dual-Layer Cloud Persistence Architecture", h2_style))
     story.append(Paragraph(
@@ -826,9 +829,10 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         "<b>• Layer 1 — Idempotent Database Seeder (<code>seedAdmin.js</code>):</b><br/>"
         "On every backend boot, the seeder validates that the 5 default department accounts and official advocates exist. "
         "If any are missing, it recreates them idempotently without creating duplicate documents.<br/><br/>"
-        "<b>• Layer 2 — Disk-Backed JSON Mirror (<code>server/data/custom_advocates.json</code>):</b><br/>"
-        "Whenever Admin or HR adds a new advocate via the web portal, the profile is written simultaneously to MongoDB "
-        "and to the local JSON file mirror. On container reboot, the seeder re-imports all custom advocates from disk.<br/><br/>"
+        "<b>• Layer 2 — Disk-Backed JSON Mirror (<code>server/data/custom_advocates.json</code> & <code>persistent_bills.json</code>):</b><br/>"
+        "Whenever Admin or HR adds an advocate or a bill moves through any lifecycle stage (intake, scrutiny, sanction, payment), "
+        "the record is written simultaneously to MongoDB and to the local JSON file mirror. On container reboot, the seeder "
+        "re-imports all custom advocates and active bills from disk. Bills and advocates are only deleted when authorized roles perform deletion.<br/><br/>"
         "<b>• Layer 3 — Cloud MongoDB Atlas Connection (<code>MONGODB_URI</code>):</b><br/>"
         "In production environments, connecting to a MongoDB Atlas cluster provides 100% persistent cloud document storage "
         "with automated backups and multi-region replication."
@@ -836,7 +840,7 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     story.append(Table([[Paragraph(persist_box, body_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), c_light_bg),
         ('BOX', (0,0), (0,0), 1, c_border),
-        ('PADDING', (0,0), (0,0), 8),
+        ('PADDING', (0,0), (0,0), 6),
     ]))
 
     story.append(PageBreak())
@@ -887,7 +891,7 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     story.append(Table([[Paragraph(csv_features, body_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), c_light_bg),
         ('BOX', (0,0), (0,0), 1, c_border),
-        ('PADDING', (0,0), (0,0), 8),
+        ('PADDING', (0,0), (0,0), 6),
     ]))
 
     story.append(PageBreak())
@@ -920,9 +924,9 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     story.append(Table([[Paragraph(setup_code.replace('\n', '<br/>'), code_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), colors.HexColor("#0f172a")),
         ('BOX', (0,0), (0,0), 1, c_border),
-        ('PADDING', (0,0), (0,0), 8),
+        ('PADDING', (0,0), (0,0), 6),
     ]))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     story.append(Paragraph("9.2 Automated Verification Test Suite (14 Scenarios)", h2_style))
     story.append(Paragraph(
@@ -939,9 +943,9 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
         "✓ 4. HR registers fee bill (auto-assigned BSPHCL/ABM/2026/0001)<br/>"
         "✓ 5. HR submits bill to Legal Cell (Status: HR_SUBMITTED)<br/>"
         "✓ 6. Legal verifies bill & forwards to GM (Status: LEGAL_VERIFIED)<br/>"
-        "✓ 7. GM approves bill with sanction amount (₹45,000 on ₹50,000 claim)<br/>"
-        "✓ 8. Accounts records partial payment (₹20,000 via NEFT)<br/>"
-        "✓ 9. Accounts records balance payment (₹25,000 via RTGS)<br/>"
+        "✓ 7. GM approves bill with sanction amount (Rs.45,000 on Rs.50,000 claim)<br/>"
+        "✓ 8. Accounts records partial payment (Rs.20,000 via NEFT)<br/>"
+        "✓ 9. Accounts records balance payment (Rs.25,000 via RTGS)<br/>"
         "✓ 10. Bill status automatically transitions to PAID (COMPLETED)<br/>"
         "✓ 11. BillHistory audit trail captures all transitions & actors<br/>"
         "✓ 12. Unauthorized role blocked with 403 Forbidden<br/>"
@@ -951,128 +955,113 @@ def build_handover_pdf(filename="BSPHCL_Advocate_Management_System_Handover_Repo
     story.append(Table([[Paragraph(test_box, body_style)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), colors.HexColor("#f0fdf4")),
         ('BOX', (0,0), (0,0), 1, colors.HexColor("#86efac")),
-        ('PADDING', (0,0), (0,0), 8),
+        ('PADDING', (0,0), (0,0), 6),
     ]))
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 12: APPLICATION SCREENSHOTS & VISUAL PROOFS
+    # PAGE 12: APPLICATION SCREENSHOTS (CODEBASE FOLDER & USER MANAGEMENT)
     # =========================================================================
-    story.append(Paragraph("10. Live Application Screenshots & Visual Proofs", h1_style))
+    story.append(Paragraph("10. Visual Architecture & Project Screenshots", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=c_primary, spaceBefore=2, spaceAfter=8))
 
     story.append(Paragraph(
-        "The following screenshots illustrate the production interface deployed at "
-        "<b>https://bsphcl-advocate-ms.vercel.app</b> across key departmental workflows:",
+        "The following screenshots illustrate the architectural codebase structure and live production interfaces "
+        "deployed at <b>https://bsphcl-advocate-ms.vercel.app</b>:",
         body_style
     ))
 
-    # Screenshot 1: User Management
-    sc1_path = os.path.join('pdf_assets', 'screen_user_management.jpg')
-    if os.path.exists(sc1_path):
-        story.append(Paragraph("<b>Screenshot 1: Department User Management Dashboard (Admin Role)</b>", h2_style))
-        story.append(Table([[RLImage(sc1_path, width=470, height=140)]], colWidths=[523], style=[
+    # Figure 1: Codebase Folder & Architecture Screenshot
+    tree_img_path = os.path.join('pdf_assets', 'screen_folder_files.jpg')
+    if os.path.exists(tree_img_path):
+        story.append(Paragraph("<b>Figure 1: Project Codebase Folder & Directory File Structure (VS Code View)</b>", h2_style))
+        story.append(Table([[RLImage(tree_img_path, width=475, height=185)]], colWidths=[523], style=[
             ('ALIGN', (0,0), (-1,-1), 'CENTER'),
             ('BOX', (0,0), (-1,-1), 0.8, c_border),
             ('PADDING', (0,0), (-1,-1), 2),
         ]))
         story.append(Paragraph(
-            "<i>Figure 1: Administrator portal displaying active departmental users, role badges (HR, LEGAL, GM, ACCOUNTS), "
+            "<i>Figure 1: Full codebase tree showing client SPA components, server controllers, routes, Mongoose models, "
+            "persistent data store (custom_advocates.json & persistent_bills.json), seeder, and Express API architecture.</i>",
+            table_cell
+        ))
+        story.append(Spacer(1, 6))
+
+    # Figure 2: User Management
+    sc1_path = os.path.join('pdf_assets', 'screen_user_management.jpg')
+    if os.path.exists(sc1_path):
+        story.append(Paragraph("<b>Figure 2: Department User Management Dashboard (Admin Role)</b>", h2_style))
+        story.append(Table([[RLImage(sc1_path, width=475, height=180)]], colWidths=[523], style=[
+            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+            ('BOX', (0,0), (-1,-1), 0.8, c_border),
+            ('PADDING', (0,0), (-1,-1), 2),
+        ]))
+        story.append(Paragraph(
+            "<i>Figure 2: Administrator portal displaying active departmental users, role badges (HR, LEGAL, GM, ACCOUNTS), "
             "status switches, and one-click 'Deactivate' / 'Reset Password' action buttons.</i>",
             table_cell
         ))
-        story.append(Spacer(1, 6))
-
-    # Screenshot 2: Bill Refill & Resubmit
-    sc2_path = os.path.join('pdf_assets', 'screen_bill_resubmit.jpg')
-    if os.path.exists(sc2_path):
-        story.append(Paragraph("<b>Screenshot 2: Workflow Progression & Refill Resubmit Modal (HR Role)</b>", h2_style))
-        story.append(Table([[RLImage(sc2_path, width=470, height=140)]], colWidths=[523], style=[
-            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
-            ('BOX', (0,0), (-1,-1), 0.8, c_border),
-            ('PADDING', (0,0), (-1,-1), 2),
-        ]))
-        story.append(Paragraph(
-            "<i>Figure 2: Bill detail view showing returned status alert ('submit document'), financial summary cards, "
-            "and modal enabling HR to refill all fields, attach replacement documents, and resubmit to Legal.</i>",
-            table_cell
-        ))
-        story.append(Spacer(1, 6))
-
-    # Screenshot 3: Advocates Directory
-    sc3_path = os.path.join('pdf_assets', 'screen_advocates.jpg')
-    if os.path.exists(sc3_path):
-        story.append(Paragraph("<b>Screenshot 3: Empanelled Advocate Directory & Roster (All Roles)</b>", h2_style))
-        story.append(Table([[RLImage(sc3_path, width=470, height=130)]], colWidths=[523], style=[
-            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
-            ('BOX', (0,0), (-1,-1), 0.8, c_border),
-            ('PADDING', (0,0), (-1,-1), 2),
-        ]))
-        story.append(Paragraph(
-            "<i>Figure 3: Master advocate roster showing unique IDs (ADV/0001), Bar Council enrollment numbers, "
-            "contact details, active status indicators, and ledger navigation.</i>",
-            table_cell
-        ))
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 13: PROJECT HANDOVER CHECKLIST & FORMAL SIGN-OFF
+    # PAGE 13: LIVE PRODUCTION SCREENSHOTS & FORMAL SIGN-OFF
     # =========================================================================
-    story.append(Paragraph("11. Project Handover Checklist & Formal Sign-Off", h1_style))
+    story.append(Paragraph("11. Production Workflows & Handover Sign-Off", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=c_primary, spaceBefore=2, spaceAfter=8))
 
-    story.append(Paragraph(
-        "This handover checklist verifies that all functional components, code repositories, security controls, "
-        "and documentation deliverables are complete and transferred to BSPHCL:",
-        body_style
-    ))
+    # Figure 3: Bill Detail & Refill Modal
+    sc2_path = os.path.join('pdf_assets', 'screen_bill_resubmit.jpg')
+    if os.path.exists(sc2_path):
+        story.append(Paragraph("<b>Figure 3: Bill Refill & Resubmit Modal on Returned Bill (HR Role)</b>", h2_style))
+        story.append(Table([[RLImage(sc2_path, width=475, height=140)]], colWidths=[523], style=[
+            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+            ('BOX', (0,0), (-1,-1), 0.8, c_border),
+            ('PADDING', (0,0), (-1,-1), 2),
+        ]))
+        story.append(Paragraph(
+            "<i>Figure 3: Bill detail view showing returned status alert ('submit document'), financial summary cards, "
+            "and modal enabling HR to refill all fields, attach replacement documents, and resubmit to Legal.</i>",
+            table_cell
+        ))
+        story.append(Spacer(1, 4))
 
-    check_data = [
-        [Paragraph("<b>Handover Category</b>", table_cell_header), Paragraph("<b>Verification Item / Criterion</b>", table_cell_header), Paragraph("<b>Status</b>", table_cell_header)],
-        [Paragraph("Source Code Repository", table_cell), Paragraph("GitHub repository updated with main branch, clean commit history, zero secrets in git", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Frontend Application", table_cell), Paragraph("React 18 SPA deployed on Vercel Edge with production environment variables", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Backend REST API", table_cell), Paragraph("Node.js/Express service live on Render Cloud with automated health check & CORS", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Official Advocate Roster", table_cell), Paragraph("6 empanelled advocates registered in seedAdmin.js and custom_advocates.json mirror", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Workflow State Machine", table_cell), Paragraph("HR -> Legal -> GM -> Accounts 4-stage pipeline verified with return and refill", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Exclusive Permissions", table_cell), Paragraph("Account Officer exclusive bill removal & HR refill modal strictly enforced", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Automated Testing", table_cell), Paragraph("14/14 automated integration tests pass in test_workflow.js", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Handover ZIP Archive", table_cell), Paragraph("Clean ZIP archive (advocate MS.zip) and uncompressed duplicate folder generated", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-        [Paragraph("Documentation Manual", table_cell), Paragraph("Comprehensive PDF Handover Report and HANDOVER_NOTES.md created", table_cell), Paragraph("<b>✓ Verified</b>", table_cell)],
-    ]
-    check_table = Table(check_data, colWidths=[140, 303, 80])
-    check_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), c_header_bg),
-        ('BOX', (0,0), (-1,-1), 1, c_border),
-        ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
-        ('PADDING', (0,0), (-1,-1), 4.5),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, c_light_bg]),
-        ('ALIGN', (2,0), (2,-1), 'CENTER'),
-        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-    ]))
-    story.append(check_table)
-    story.append(Spacer(1, 14))
+    # Figure 4: Reports & Analytics
+    sc4_path = os.path.join('pdf_assets', 'screen_reports.jpg')
+    if os.path.exists(sc4_path):
+        story.append(Paragraph("<b>Figure 4: Executive Financial Management Reports & CSV Export</b>", h2_style))
+        story.append(Table([[RLImage(sc4_path, width=475, height=135)]], colWidths=[523], style=[
+            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+            ('BOX', (0,0), (-1,-1), 0.8, c_border),
+            ('PADDING', (0,0), (-1,-1), 2),
+        ]))
+        story.append(Paragraph(
+            "<i>Figure 4: Executive management analytics displaying total claimed, approved, settled, and outstanding liability "
+            "cards with date range filters and Excel-compatible UTF-8 BOM CSV streaming export.</i>",
+            table_cell
+        ))
+        story.append(Spacer(1, 6))
 
-    story.append(Paragraph("Formal Handover Sign-Off & Acceptance", h2_style))
+    # Formal Handover Sign-Off Box
+    story.append(Paragraph("Formal Handover Sign-Off & Project Acceptance", h2_style))
     sign_off_box = (
-        "<b>STUDENT DEVELOPMENT TEAM SIGNATURES:</b><br/><br/>"
-        "1. <b>Raushan Kumar</b> (Full-Stack Engineer & Project Lead): ________________________ Date: 27-Nov-2026<br/><br/>"
-        "2. <b>Anubhav Kumar</b> (Backend Architecture & Database): ________________________ Date: 27-Nov-2026<br/><br/>"
-        "3. <b>Dipanshu Kumar</b> (Frontend UI/UX & Testing): ________________________ Date: 27-Nov-2026<br/><br/>"
+        "<b>STUDENT DEVELOPMENT TEAM (GEC MUNGER, CSE-AI, 7TH SEMESTER, 2023–2027):</b><br/>"
+        "1. <b>Raushan Kumar</b> (Reg. No. <b>23151144003</b>) — <i>Lead Developer</i>: ____________________ Date: 27-Nov-2026<br/>"
+        "2. <b>Anubhav Asthana</b> (Reg. No. <b>23151144004</b>) — <i>Frontend & Testing</i>: ____________________ Date: 27-Nov-2026<br/>"
+        "3. <b>Dipanshu Raj</b> (Reg. No. <b>23151144001</b>) — <i>Database & Testing</i>: ____________________ Date: 27-Nov-2026<br/>"
         "─────────────────────────────────────────────────────────────────────────────<br/>"
-        "<b>BSPHCL PROJECT MENTOR & IT SUPERVISOR ACCEPTANCE:</b><br/><br/>"
-        "I hereby confirm that I have reviewed the Advocate Bill Management System (ABMS) demonstration, verified the "
-        "source code deliverables, tested the departmental workflows, and accept this handover project report.<br/><br/>"
-        "<b>Mr. AJAY KUMAR (DBA)</b><br/>"
-        "IT In-Charge & Database Administrator<br/>"
-        "Bihar State Power Holding Company Limited (BSPHCL), Patna<br/><br/>"
-        "Signature: ____________________________________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Official Seal & Date: ____________________"
+        "<b>BSPHCL MENTORSHIP & ADMINISTRATIVE ACCEPTANCE (PERIOD: 30/10/2026 TO 27/11/2026):</b><br/>"
+        "We hereby certify that the Advocate Bill Management System (ABMS) was developed, demonstrated, and submitted "
+        "by the above students. The software deliverables, database persistence architecture, and documentation are accepted.<br/><br/>"
+        "<b>Mr. Sandeep Kumar</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Alok Sir</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Mr. Ajay Kumar (DBA)</b><br/>"
+        "Under Secretary (HR & Admin)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT Department In-Charge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database Administrator<br/>"
+        "Signature: ______________________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature: ______________________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature: ______________________"
     )
-    story.append(Table([[Paragraph(sign_off_box, body_style)]], colWidths=[523], style=[
+    story.append(Table([[Paragraph(sign_off_box, table_cell)]], colWidths=[523], style=[
         ('BACKGROUND', (0,0), (0,0), c_light_bg),
-        ('BOX', (0,0), (0,0), 1.2, c_primary),
-        ('PADDING', (0,0), (0,0), 10),
+        ('BOX', (0,0), (0,0), 1, c_primary),
+        ('PADDING', (0,0), (0,0), 7),
     ]))
 
     # Build the document

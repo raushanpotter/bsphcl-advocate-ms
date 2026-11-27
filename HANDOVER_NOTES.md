@@ -1,11 +1,28 @@
 # BSPHCL Advocate Bill Management System - Project Handover Guide
 
-## 1. Project Overview
-The **BSPHCL Advocate Bill Management System** is a full-stack enterprise web application designed for Bihar State Power Holding Company Limited (BSPHCL) to manage empanelled advocate fee bills, track multi-department scrutinies, executive sanctions, and offline disbursements across Patna High Court, district courts, and tribunals.
+## 1. Project & Academic Internship Overview
+The **BSPHCL Advocate Bill Management System (ABMS)** is an enterprise-grade full-stack web application designed for Bihar State Power Holding Company Limited (BSPHCL) to manage empanelled advocate fee bills, track multi-department scrutinies, executive sanctions, and offline disbursements across Patna High Court, district courts, and tribunals.
+
+### Student Development Team:
+- **Raushan Kumar** (Reg. No: **23151144003**) — *Project Lead & Full-Stack Developer*
+- **Anubhav Asthana** (Reg. No: **23151144004**) — *Frontend UI/UX & Testing*
+- **Dipanshu Raj** (Reg. No: **23151144001**) — *Database Architecture & Testing*
+
+### Academic & Institutional Details:
+- **College:** Government Engineering College, Munger (GEC Munger)
+- **Department:** Computer Science & Engineering (Artificial Intelligence) — CSE (AI)
+- **Semester & Session:** 7th Semester | Session 2023–2027
+- **Internship Duration:** **30/10/2026 to 27/11/2026** (1 Month)
+
+### Mentorship & Supervision:
+- **Mr. Sandeep Kumar** — *Under Secretary*, Dept. of HR & Administration, BSPHCL
+- **Alok Sir** — *IT Department In-Charge*, BSPHCL
+- **Mr. Ajay Kumar (DBA)** — *Database Administrator*, IT Cell, BSPHCL
+- **Company:** Bihar State Power Holding Company Ltd. (BSPHCL), Vidyut Bhawan, Bailey Road, Patna
 
 - **Frontend Application:** React.js 18, Vite, Lucide Icons, responsive departmental CSS
 - **Backend API:** Node.js, Express.js, MongoDB / Mongoose, JWT Authentication, Multer PDF storage
-- **Documentation:** `README.md` and comprehensive PDF manual `BSPHCL_Advocate_Management_System_Guide.pdf`
+- **Documentation:** `BSPHCL_Advocate_Management_System_Handover_Report_GEC_Munger.pdf` and `README.md`
 
 ---
 
